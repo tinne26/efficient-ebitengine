@@ -1,6 +1,7 @@
 # Efficient Ebitengine
 
-> [!WARNING] UNDER CONSTRUCTION
+> [!WARNING]
+> UNDER CONSTRUCTION
 
 This article is oriented to programmers familiar with [Ebitengine](https://github.com/hajimehoshi/ebiten) —the 2D game engine written in Golang by Hajime Hoshi—; it explains how to use the engine's API in an efficient way, avoiding common pitfalls and showcasing the most performant ways to get your graphics into the screen.
 
@@ -72,13 +73,14 @@ In more practical terms, this means that during a sequence of draws —especiall
 
 When you start looking for these, you will often find yourself **reordering or regrouping draw calls** to put similar calls together. This is one of the most common and effective optimization techniques that you should have in your repertoire.
 
-> [!NOTE] If you are curious, the reason `Filter` breaks batching is that different filtering types require different shaders in Ebitengine. `Blend` does not require different shaders, but it requires different draw command "settings". If you tried, you would see that you can't express multiple draws with different filters or blends as a single `DrawTriangles` command *(well... you could create a single shader that uses different filtering methods dynamically, but this would only make sense in very rare cases that are outside of scope)*.
+> [!NOTE]
+> If you are curious, the reason `Filter` breaks batching is that different filtering types require different shaders in Ebitengine. `Blend` does not require different shaders, but it requires different draw command "settings". If you tried, you would see that you can't express multiple draws with different filters or blends as a single `DrawTriangles` command *(well... you could create a single shader that uses different filtering methods dynamically, but this would only make sense in very rare cases that are outside of scope)*.
 
-# Internal atlases and automatic atlasing
+## Internal atlases and automatic atlasing
 
 ...
 
-# TODO
+## TODO
 
 - draw triangles and unmanaged atlases when really needed
 - do not draw (screen cleared every frame = false, needsRefresh flags, etc)
